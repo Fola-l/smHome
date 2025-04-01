@@ -1,6 +1,6 @@
 console.log("✅ server.js is executing...");
 
-const { Sequelize } = require ('sequelize');
+const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(process.env.MYSQL_DB, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
@@ -13,9 +13,7 @@ const connectDB = async () => {
     try {
         await sequelize.authenticate();
         console.log('MySQL Connected....');
-
-        
-        await sequelize.sync({ force: false });  
+        await sequelize.sync({ force: false });
         console.log('Database synced');
     } 
     catch (err) {
