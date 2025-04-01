@@ -12,14 +12,14 @@ const sequelize = new Sequelize(process.env.MYSQL_DB, process.env.MYSQL_USER, pr
 const connectDB = async () => {
     try {
         await sequelize.authenticate();
-        console.log('✅ MySQL Connected....');
+        console.log('MySQL Connected....');
 
-        // Sync Database AFTER connection is established
+        
         await sequelize.sync({ force: false });  
-        console.log('✅ Database synced');
+        console.log('Database synced');
     } 
     catch (err) {
-        console.error('❌ MySQL Connection Error:', err.message);
+        console.error('MySQL Connection Error:', err.message);
         process.exit(1);
     }
 }
